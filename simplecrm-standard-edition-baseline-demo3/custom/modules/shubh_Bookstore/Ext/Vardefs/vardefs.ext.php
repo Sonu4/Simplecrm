@@ -41,7 +41,7 @@ $dictionary['shubh_Bookstore']['fields']['name']['comments']='This is a title of
 
  
 
- // created: 2018-05-19 13:37:05
+ // created: 2018-05-22 14:26:00
 $dictionary['shubh_Bookstore']['fields']['country_c']['inline_edit']='1';
 $dictionary['shubh_Bookstore']['fields']['country_c']['labelValue']='Country';
 

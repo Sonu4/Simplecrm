@@ -18,85 +18,75 @@ class shubh_BookstoreViewEdit extends ViewEdit{
     	
 ?>
             <script>
-            var country=[
-            'Pakistan',
-    		'Bangladesh',
-    		'Nepal',
-    		'Bhutan'
-            ];
+              $(document).ready(function(){
 
-            var states=[
-            'Arunachal Pradesh',
-            'Andra Pradesh',
-            'Jammu Kashmir',
-            'Bengal',
-            'Sikkim',
-            'UP',
-            'Maharashtra',
-            'Goa',
-            'Gujrat',
-            'Tamilnadu',
-            'Punjab',
-            'Delhi',
-            'Jharkhand'
-            ];
-
-            var cities=[
-            'Nagpur',
-            'Katol',
-            'Ramtek',
-            'Chandrapur',
-            'Bramhapuri',
-            'Nagbhid',
-            'Sakoli',
-            'Narkhed',
-            'Bhandara',
-            'Umred',
-            'Mul'
-            ];
-       				$(document).ready(function(){
-
-       					for(var i=0;i<country.length;i++) {
-       						$('#country_c').append('<option label="'+country[i]+'" value="'+country[i]+'">'+country[i]+'</option>');
-       				}
-
-       					
-       				
+                var url="http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/simpleApi/getCountrys.php";
+                 $.ajax({
+                      method:'POST',
+                      url:url,
+                      dataType:'json',
+                      success:function(data){
+                       for(var i=0;i<data.length;i++){
+                         $('#country_c').append('<option label="'+data[i].country+'" value="'+data[i].country+'">'+data[i].country+'</option>');
+                       } 
+                      },
+                      error:function(request,status,error){
+                       alert("Error");
+                      }
+                    });
 
 
-       						$('#country_c').change(function(){
-       							if ($('#country_c').val()=='India') {
+                 $('#country_c').change(function(){
+                     $('#states_c').empty();
+                      var dataUrl={
+                        country: $('#country_c').val()
+                      };
 
-       								for(var i=0;i<states.length;i++) {
-		       						$('#states_c').append('<option label="'+states[i]+'" value="'+states[i]+'">'+states[i]+'</option>');
+                      $.ajax({
+                        method:'POST',
+                        url:"http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/simpleApi/getState.php",
+                        data:dataUrl,
+                        dataType:'json', 
+                        success:function(data){
+                        for(var i=0;i<data.length;i++){
+                         $('#states_c').append('<option label="'+data[i].state+'" value="'+data[i].state+'">'+data[i].state+'</option>');
+                        }
+                       },
+                        error:function(request,status,error){
+                           alert("Error");
+                        }
+                      });
+                }); 
 
-		       						}
+                 $('#states_c').change(function(){
+                     $('#cities_c').empty();
+                      var dataUrl={
+                        country: $('#country_c').val(),
+                        state:$('#states_c').val()
+                      };
 
-       							}else{
-       								$('#states_c').empty();	
-       							}
-       						});
+                      $.ajax({
+                        method:'POST',
+                        url:"http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/simpleApi/getCities.php",
+                        data:dataUrl,
+                        dataType:'json', 
+                        success:function(data){
+                        for(var i=0;i<data.length;i++){
+                         $('#cities_c').append('<option label="'+data[i].city+'" value="'+data[i].city+'">'+data[i].city+'</option>');
+                        }
+                       },
+                        error:function(request,status,error){
+                           alert("Error");
+                        }
+                      });
+                }); 
 
 
-
-       						$('#states_c').change(function(){
-       							if ($('#states_c').val()=='Maharashtra') {
-
-       								for(var i=0;i<states.length;i++) {
-		       						$('#cities_c').append('<option label="'+cities[i]+'" value="'+cities[i]+'">'+cities[i]+'</option>');
-
-		       						}
-
-       							}else{
-       								$('#cities_c').empty();	
-       							}
-       						});
+              });
 
 
-       					
-       					
-       				});
-             </script>
+  
+            </script>
 <?php
 
         
@@ -107,7 +97,9 @@ class shubh_BookstoreViewEdit extends ViewEdit{
 ?>
 
 
-
+<!-- SELECT DISTINCT  country  FROM glob -->
+<!-- SELECT DISTINCT state FROM glob WHERE country='India' -->
+<!-- SELECT DISTINCT city FROM glob WHERE state='Maharashtra' and country='India' or state='' and country='India' -->
 
 
 

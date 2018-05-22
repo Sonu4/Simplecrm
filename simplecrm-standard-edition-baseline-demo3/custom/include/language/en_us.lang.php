@@ -239,20 +239,6 @@ $GLOBALS['app_list_strings']['lead_source_dom']=array (
   'Other' => 'Other',
 );
 $app_strings['LBL_GROUPTAB5_1526531964'] = 'Basic';
-
-$GLOBALS['app_list_strings']['country_1']=array (
-  '' => '',
-  'China' => 'China',
-  'Hong_Kong' => 'Hong Kong',
-  'India' => 'India',
-  'Japan' => 'Japan',
-  'Maleshia' => 'Maleshia',
-  'Russia' => 'Russia',
-  'Singapore' => 'Singapore',
-  'Taiwan' => 'Taiwan',
-  'UK' => 'UK',
-  'USA' => 'USA',
-);
 $GLOBALS['app_list_strings']['Elastic_boost_options']=array (
   '' => '',
   0 => 'Disabled',
@@ -276,5 +262,9 @@ $GLOBALS['app_list_strings']['states_list']=array (
   '' => '',
 );
 $GLOBALS['app_list_strings']['cities_list']=array (
+  '' => '',
+);
+
+$GLOBALS['app_list_strings']['country_1']=array (
   '' => '',
 );
