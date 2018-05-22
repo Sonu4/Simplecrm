@@ -1,0 +1,28 @@
+[
+		{
+			"firstName":"shuhbam",
+			"lastName":"kothe",
+			"email":"k@gmail.com"
+		},
+		{
+			"firstName":"Aditya",
+			"lastName":"kothe",
+			"email":"Ak@gmail.com"
+		},
+		{
+			"firstName":"sanket",
+			"lastName":"vyawahare",
+			"email":"AAAAAk@gmail.com"
+		},
+		{
+			"firstName":"Shrikant",
+			"lastName":"ther",
+			"email":"SSSSTTTT@gmail.com"
+		},
+		{
+			"firstName":"pratik",
+			"lastName":"Siddhwar",
+			"email":"PPPPSSSSS@gmail.com"
+		}		
+
+]
