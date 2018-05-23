@@ -7,5 +7,5 @@ $entry_point_registry['MyEntryPoint'] = array(
 
 $entry_point_registry['CreateBooks'] = array(
         'file' => 'custom/custom_entry_points/createBooks.php',
-        'auth' => true
+        'auth' => false
 );

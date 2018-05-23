@@ -1,1 +1,2 @@
-22/05/2018 : "The API updates for selecting Country,state and city is done, The view is also got created"
+22/05/2018 : "The API updates for selecting Country,state and city is done, The view is also got created".
+23/05/2018 : "The entry points is completed but still facing some issues in image uploads.".

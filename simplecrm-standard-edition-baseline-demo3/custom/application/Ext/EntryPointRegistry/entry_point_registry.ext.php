@@ -4,7 +4,7 @@
 
 $entry_point_registry['QuickCRMgetConfig'] = array(
 	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+	'auth' => true
 );
 
 
@@ -16,6 +16,6 @@ $entry_point_registry['MyEntryPoint'] = array(
 
 $entry_point_registry['CreateBooks'] = array(
         'file' => 'custom/custom_entry_points/createBooks.php',
-        'auth' => true
+        'auth' => false
 );
 ?>

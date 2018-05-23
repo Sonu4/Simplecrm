@@ -92,9 +92,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     $set_entry_result = call("set_entry", $set_entry_parameters, $url);
     
     error_log("Entry point Executed");
-    // echo "<pre>";
-    // print_r($set_entry_result);
-    // echo "</pre>";
+    
     echo json_encode($set_entry_result);
 
 
