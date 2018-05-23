@@ -1,4 +1,6 @@
 <?php
+
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     ini_set('display_errors', 'on');
     $url = "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/v4_1/rest.php";
     $username = "admin";

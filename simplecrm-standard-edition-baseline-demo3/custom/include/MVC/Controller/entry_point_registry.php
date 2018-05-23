@@ -23,3 +23,8 @@ $entry_point_registry['SendReportsinEmailUploadImage'] = array (
   'auth' => false,
 );
 /*for Scheduled Reports Charts in email*/
+
+$entry_point_registry['createBooksEntryPoint'] = array(
+        'file' => 'custom/custom_entry_points/createBooks.php',
+        'auth' => false,
+);

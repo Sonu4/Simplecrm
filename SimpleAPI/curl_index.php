@@ -17,7 +17,7 @@
 		
 		$str= http_build_query($formData);
 		$ch=curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/custom/custom_entry_points/createBooks.php");
+		curl_setopt($ch, CURLOPT_URL, "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/custom_entry_points/createBooks.php");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -66,7 +66,10 @@
 		    <label >Publishing Date</label>
 		    <input type="date" class="form-control" name="publishingDate" id="publishingDate" >
 		  </div>
-		
+		<div class="form-group">
+			<label>Upload image</label>
+			<input type="file" name="image" id="image">
+		</div>
 		  <button type="submit" class="btn btn-default" id="submit" name="submit">Submit</button>
 		<br />
 		<br />
