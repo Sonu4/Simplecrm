@@ -7,20 +7,26 @@
 		$bookTitle=$_POST['bookTitle'];
 		$bookAuther=$_POST['bookAuther'];
 		$publishingDate=$_POST['publishingDate'];
-
+		
+		$entryPoint='CreateBooks';
+		
 		$formData=array(
+						'entryPoint'=>$entryPoint,
 						'name' => $name,
 						'bookTitle' => $bookTitle, 
 						'bookAuther' => $bookAuther,
-						'publishingDate' => $publishingDate, 
+						'publishingDate' => $publishingDate, 						
 						);
 		
 		$str= http_build_query($formData);
+	
+
 		$ch=curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/custom_entry_points/createBooks.php");
+		curl_setopt($ch, CURLOPT_URL,"http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/index.php");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		
 		$output=curl_exec($ch);
 		curl_close($ch);
 		$o = json_decode($output);
@@ -29,6 +35,7 @@
 		// echo $o->id;
 		print_r(error_get_last());
 
+		// entryPoint=CreateBooks&name=SSSS&bookTitle=SSSS&bookAuther=SSSS&publishingDate=
 	}
 	
 ?>
@@ -66,10 +73,6 @@
 		    <label >Publishing Date</label>
 		    <input type="date" class="form-control" name="publishingDate" id="publishingDate" >
 		  </div>
-		<div class="form-group">
-			<label>Upload image</label>
-			<input type="file" name="image" id="image">
-		</div>
 		  <button type="submit" class="btn btn-default" id="submit" name="submit">Submit</button>
 		<br />
 		<br />

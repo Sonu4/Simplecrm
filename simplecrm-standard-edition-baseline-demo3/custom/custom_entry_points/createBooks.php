@@ -5,7 +5,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     $url = "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/v4_1/rest.php";
     $username = "admin";
     $password = "admin";
-// print_r($_REQUEST);exit;
+
     $name=$_REQUEST['name'];
     $bookTitle=$_REQUEST['bookTitle'];
     $bookAuther=$_REQUEST['bookAuther'];

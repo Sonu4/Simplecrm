@@ -27,9 +27,8 @@
 		curl_close($ch);
 		$o = json_decode($output);
 
-		// print_r(is_array($o) == true);
-		// echo $o->id;
-		print_r(error_get_last());
+	
+		//print_r(error_get_last());
 
 	}
 	

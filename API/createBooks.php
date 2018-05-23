@@ -1,5 +1,5 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
     ini_set('display_errors', 'on');
     $url = "http://localhost/shubham/simplecrm-standard-edition-baseline-demo3/service/v4_1/rest.php";
     $username = "admin";
@@ -9,7 +9,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     $bookTitle=$_REQUEST['bookTitle'];
     $bookAuther=$_REQUEST['bookAuther'];
     $publishingDate=@$_REQUEST['publishingDate'];
-   
+    $bookCover=$_REQUEST['bookCover'];
 
     //function to make cURL request
     function call($method, $parameters, $url)
@@ -83,6 +83,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
                array("name" => "bookstore", "value" => "$bookTitle"),
                 array("name" => "bookauther", "value" => "$bookAuther"),
                  array("name" => "publishing_date_c", "value" => "$publishingDate"),
+                  array("name" => "bookcover", "value" => "$bookCover"),
+
                  
 
          ),
