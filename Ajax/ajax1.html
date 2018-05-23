@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Tutorial | xhr Object</title>
+</head>
+<body>
+	<button id="button">Get Text File</button>
+	<br><br>
+	<div id="text"></div>
+	<script>
+		// add event listner
+		document.getElementById('button').addEventListener('click',loadText);
+
+		function loadText(){
+
+			// create xhr object i.e XMLHttpRequest() object.
+			var xhr=new XMLHttpRequest();
+
+			// OPEN--> type, url/file, assync true/false
+			xhr.open('GET','sample.txt',true);
+
+
+			//Opthional :- used only for Progess.
+
+		/*	xhr.onprogress=function(){
+				//console.log(this.responseText);
+			}
+		*/
+			xhr.onload=function(){
+				if (this.status==200) {
+					//console.log(this.responseText);
+					document.getElementById('text').innerHTML=this.responseText;
+				}else if(this.status==404)
+				{
+					document.getElementById('text').innerHTML='Not Found';
+				}
+					
+				
+			}
+
+		/*	xhr.onerror=function(){ // Should always use with on load method in case something gose wrog
+				console.log('Request Error'); 
+			}
+		*/
+		/*	xhr.onreadystatechange =function(){ // this is older method nowdays onload is used.
+				console.log("READYSTATES: "+xhr.readyState);
+				if (this.readyState==4 && this.status==200) {
+					console.log(this.responseText);
+				}
+			}
+		*/
+			// sends Request.
+			xhr.send();
+
+			//Ready States------------------------------------------------------
+			//0: request not initialized 
+			//1: server connection established
+			//2: request received 
+			//3: processing request 
+			//4: request finished and response is ready
+
+
+
+			//HTTP statuses---------------------------------------------------
+			//200: ok
+			//203: Forbidan
+			//204: Not Found
+		}
+	</script>
+
+
+</body>
+</html>

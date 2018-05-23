@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax 2 | Local Json</title>
+</head>
+<body>
+		<button id="button">Get User</button>
+		
+		<h1>Users</h1>
+		<div id="users"></div>
+
+		<script>
+			document.getElementById('button').addEventListener('click',loadUsers);
+
+			function loadUsers(){
+				var xhr=new XMLHttpRequest();
+				xhr.open('GET','getUsers.php',true);
+
+				xhr.onload=function(){
+					if (this.status==200) {
+
+
+						var users = JSON.parse(this.responseText);
+						console.log(users);
+
+						var output='';
+
+						for(var i in users){
+						  output +='<ul>'+
+						  '<li> ID :'+users[i].id+'</li>'+
+						  '<li> Name :'+users[i].name+'</li>'+'</ul>';
+						}
+						
+						document.getElementById('users').innerHTML=output;
+						
+					}else{
+						document.getElementById('users').innerHTML="Something Has Gone wrong";
+					}
+				}
+
+				xhr.send();
+
+
+			}
+		</script>
+</body>
+</html>

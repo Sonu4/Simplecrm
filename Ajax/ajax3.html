@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Git Hub API </title>
+	<style>
+		
+		.myClass{
+			display: flex;
+			background: #F4F4F4;
+			padding: 10px;
+			margin: 10px;
+		}
+
+		.myClass ul{
+			list-style: none;
+		}
+	</style>
+	
+</head>
+<body>	
+		<button id="button">Load Git Hub Users</button>
+		<br><br>
+		<h2>Github Users</h2>
+		<div id="users"></div>
+
+		<script>
+			document.getElementById('button').addEventListener('click',loadUser);
+
+			function loadUser(){
+
+				xhr=new XMLHttpRequest();
+
+				xhr.open('GET','https://api.github.com/users',true);
+
+				xhr.onload= function(){
+
+					if (this.status==200) {
+
+					var users= JSON.parse(this.responseText);
+
+					var output='';
+
+					for(var i in users){
+					output +='<div class="myClass">'+
+					'<img src='+users[i].avatar_url+' height=70 width=70>'+
+					'<ul>'+
+					'<li>'+users[i].login+'</li>'+
+					'<li>'+users[i].id+'</li>'+
+					'<ul>'+
+					'</div>'
+			    	}
+
+			    	document.getElementById('users').innerHTML=output;
+				}
+				}
+
+				xhr.send();
+			}
+		</script>
+
+</body>
+</html>
