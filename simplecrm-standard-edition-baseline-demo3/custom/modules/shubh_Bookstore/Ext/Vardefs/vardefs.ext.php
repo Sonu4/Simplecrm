@@ -12,6 +12,12 @@ $dictionary['shubh_Bookstore']['fields']['total_no_of_books_c']['labelValue']='T
 
  
 
+ // created: 2018-05-24 10:41:52
+$dictionary['shubh_Bookstore']['fields']['countrys_c']['inline_edit']='1';
+$dictionary['shubh_Bookstore']['fields']['countrys_c']['labelValue']='Countrys';
+
+ 
+
  // created: 2018-05-14 11:06:24
 $dictionary['shubh_Bookstore']['fields']['publishing_date_c']['inline_edit']='1';
 $dictionary['shubh_Bookstore']['fields']['publishing_date_c']['labelValue']='publishing date';

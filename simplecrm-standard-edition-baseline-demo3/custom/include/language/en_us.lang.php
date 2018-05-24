@@ -276,3 +276,17 @@ $GLOBALS['app_list_strings']['states_0']=array (
   '' => '',
   'Maharashtra' => 'India>Maharashtra',
 );
+$GLOBALS['app_list_strings']['countrys_0']=array (
+  '' => '',
+  'india' => 'India',
+  'pakistan' => 'Pakistan',
+  'Bangladesh' => 'Bangladesh',
+  'Nepal' => 'Nepal',
+  'Bhutan' => 'Bhutan',
+  'Afganistan' => 'Afganistan',
+  'Myanmar' => 'Myanmar',
+  'China' => 'China',
+  'Japan' => 'Japan',
+  'South_koria' => 'South-koria',
+  'North_koria' => 'North-koria',
+);

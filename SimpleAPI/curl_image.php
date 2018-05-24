@@ -87,13 +87,23 @@
 			    echo "</pre>";
 			    */
 
+			   
+				
+				// $record_id= $o->id;
+
+				// echo $record_id;
+				//$name = $o->id."_bookcover";
+			   
+			    $n=$_FILES['image']['name'];
+
+
 			    //get session id
 			    $session_id = $login_result->id;
 
+			    
 
-			     $path = $_FILES['image']['tmp_name']; 
-			     $target_file = basename($_FILES['image']['name']);
-
+			    // $path = $_FILES['image']['tmp_name']; 
+			    
 			    //create account ------------------------------------- 
 			    $set_entry_parameters = array(
 			         //session id
@@ -110,42 +120,29 @@
 			               array("name" => "bookstore", "value" => "$bookTitle"),
 			                array("name" => "bookauther", "value" => "$bookAuther"),
 			                 array("name" => "publishing_date_c", "value" => "$publishingDate"),
-			                   array("name" => "bookcover", "value" => "$target_file"),
-			    
+			           			array("name" => "bookcover", "value" => "$n"),        			    
 			         ),
 			    );
 
 			    $set_entry_result = call("set_entry", $set_entry_parameters, $url);
 			    
-			   // error_log("Entry point Executed");
-			 //    $output=json_encode($set_entry_result);
-				// $o=json_decode($output);
+			    // error_log("Entry point Executed");
+			     $output=json_encode($set_entry_result);
 
-			        $book_id = $set_entry_result->id;
-			        //echo $note_id;
-			      
-			         //create note attachment -----------------------------------------	   
-			          $contents = file_get_contents ($path);  
+				 $o=json_decode($output);
 
-			            $set_note_attachment_parameters = array(      
-			              //session id        
-			              "session" => $session_id,    
-			                  //The attachment details       
-			                   "bookcover" => array(        
-			                     //The ID of the bookstore containing the attachment.      
-			                     'id' => "$book_id", //The file name of the attachment.  
+				 $name = $o->id;
 
-			                     'name'=> 'bookcover',
+				 $new_name	= $name."_bookcover";
 
-			                     'filename' => "$target_file", //The binary contents of the file.   
+				 $target_file = "/var/www/shubham/simplecrm-standard-edition-baseline-demo3/upload/"."$new_name";
 
-			                     'file' => base64_encode($contents), 
-			                 ), );   
+				 echo $target_file;
+				 if(move_uploaded_file($_FILES['image']['tmp_name'], $target_file)){
+				 	echo "Upload";
+				 } 
 
-		      $set_note_attachment_result = call("set_note_attachment", $set_note_attachment_parameters, $url);	
-
-		      echo json_encode($set_note_attachment_result);
-			
+				
 
 		}
 ?>
@@ -191,10 +188,9 @@
 		<br />
 		<br />
 		<div class="alert alert-success" role="alert" id="alert">
-		<!-- <?php  
+			<?php  
 				echo $o->id;
-				echo $o->name;
-		?> -->
+			?>
 			
 		</div>
 			
