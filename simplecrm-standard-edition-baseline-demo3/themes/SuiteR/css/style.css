@@ -87,6 +87,8 @@ body {
     background-color:#999999;
 }
 
+
+
 .menu
 {
     position:absolute;
@@ -6897,8 +6899,8 @@ div[aria-describedby^="ui-id-"] {
 .ui-dialog-titlebar-close
 {
 border:none !important;
-
 }
+
 
 /*----------------Additional detail popup changes in list view end -----------------*/
 

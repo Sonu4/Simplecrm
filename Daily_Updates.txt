@@ -1,2 +1,8 @@
 22/05/2018 : "The API updates for selecting Country,state and city is done, The view is also got created".
 23/05/2018 : "The entry points is completed but still facing some issues in image uploads.".
+24/05/2018 : "The process logic hooks are needs study"
+
+
+6902
+
+6905-6907
