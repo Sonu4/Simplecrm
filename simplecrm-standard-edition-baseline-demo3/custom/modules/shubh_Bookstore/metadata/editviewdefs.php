@@ -82,13 +82,27 @@ array (
         ),
         4 => 
         array (
-          0 => '',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'countrys_c',
+            'studio' => 'visible',
+            'label' => 'LBL_COUNTRYS',
+          ),
+          1 => 
+          array (
+            'name' => 'states_c',
+            'studio' => 'visible',
+            'label' => 'LBL_STATES',
+          ),
         ),
         5 => 
         array (
-          0 => '',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'cities_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CITIES',
+          ),
         ),
       ),
     ),
