@@ -12,6 +12,9 @@ $hook_array['after_ui_frame'] = Array();
 // Hooks Created by Shubham
 
 $hook_array['before_save'][] = Array(1, 'Determine png File', 'custom/modules/shubh_Bookstore/bHook/book_hook.php','pngClass', 'pngMethod'); 
+// Process record hook.
+// $hook_array['process_record'][] = Array(1, 'Create Detail Dialog', 'custom/modules/shubh_Bookstore/bHook/Dialog_hook.php','dialogClass', 'dialogMethod'); 
+// 
 
 
 
