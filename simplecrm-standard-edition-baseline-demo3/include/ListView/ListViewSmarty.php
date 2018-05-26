@@ -140,7 +140,7 @@ class ListViewSmarty extends ListViewDisplay
 
         //Added by Shikhar - List View Action Items in Gear Icon
        
-            $this->ss->assign('ActionMenu', $this->buildActionMenus($key));
+         $this->ss->assign('ActionMenu', $this->buildActionMenus($key));
 
 
         // Bug 24677 - Correct the page total amount on the last page of listviews

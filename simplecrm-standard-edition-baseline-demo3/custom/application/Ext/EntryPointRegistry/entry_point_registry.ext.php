@@ -18,4 +18,14 @@ $entry_point_registry['CreateBooks'] = array(
         'file' => 'custom/custom_entry_points/createBooks.php',
         'auth' => false
 );
+
+$entry_point_registry['RetriveDataList'] = array(
+        'file' => 'custom/modules/shubh_Bookstore/views/getData.php',
+        'auth' => false
+);
+
+$entry_point_registry['passData'] = array(
+        'file' => 'custom/passData.php',
+        'auth' => false
+);
 ?>
