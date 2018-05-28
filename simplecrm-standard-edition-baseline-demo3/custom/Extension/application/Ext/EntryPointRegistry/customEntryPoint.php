@@ -17,5 +17,5 @@ $entry_point_registry['RetriveDataList'] = array(
 
 $entry_point_registry['passData'] = array(
         'file' => 'custom/passData.php',
-        'auth' => false
+        'auth' => true
 );

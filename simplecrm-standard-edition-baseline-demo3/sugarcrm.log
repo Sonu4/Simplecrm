@@ -5284,3 +5284,5 @@ Sat May 19 10:44:19 2018 [3685][1][FATAL] Error running count query for shubh_Bo
  AND jt1.deleted=0  LEFT JOIN  users jt2 ON shubh_bookstore.assigned_user_id=jt2.id AND jt2.deleted=0
 
  AND jt2.deleted=0 where (bookstore=='AAA') AND shubh_bookstore.deleted=0: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='AAA') AND shubh_bookstore.deleted=0' at line 7
+Mon May 28 09:17:54 2018 [3434][-none-][FATAL] SECURITY: User authentication for admin failed
+Mon May 28 09:17:55 2018 [3434][-none-][FATAL] FAILED LOGIN:attempts[1] - admin

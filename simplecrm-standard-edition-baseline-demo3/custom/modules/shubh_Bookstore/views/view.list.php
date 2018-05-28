@@ -12,8 +12,6 @@ $js =<<<EOD
 <script>
 		$(document).ready(function(){
 
-      
-      //alert('$url_main');
 
       
         $('#MassUpdate > table > tbody > tr > td:last-child').append('<i style="cursor:pointer;color:#6d6d6d !important" class="fa fa-eye hello" aria-hidden="false"></i>').click(function(){
@@ -23,17 +21,49 @@ $js =<<<EOD
 
         // $('#txtName').text($('#MassUpdate > table > tbody > tr:nth-child(1) > td.bookstore_custom.footable-visible.footable-first-column').attr("data-previewid"));
 
-        $('tbody').find('tr').click(function(){            
-          var row=$(this).find('td.bookstore_custom.footable-visible.footable-first-column').attr("data-previewid");
-                 
-                       $.ajax({
-                          url:'$url_main',
-                          dataType:'json',
-                          data:{id=row},
-                          success:function(result){
-                            alert(result);
-                          }
-                       });
+        $(' #MassUpdate > table > tbody').find('tr').click(function(){  
+
+    
+
+               var row=$(this).find('td.bookstore_custom.footable-visible.footable-first-column').attr("data-previewid");
+                 var response=$.ajax({
+                      url:'$url_main',
+                      dataType:"json",
+                      type:"POST",
+                      data:{id:row},
+                      success:function(data){
+
+                          $(data.result).each(function(index,val){
+                            $('#txtBookcover').attr('src','upload/'+val.id+'_bookcover');
+                             $('#txtName').text(val.name);
+                             $('#txtBootkTitle').text(val.bookstore);
+                             $('#txtPublishingDate').text(val.publishing_date_c);
+                             $('#txtCountries').text(val.countrys_c);
+                             $('#txtAssignedTo').text();
+                             var str=val.cities_c;
+                             var res=str.split("_");
+                             $('#txtCities').text(res[2]);
+                             $('#txtBookAuther').text(val.bookauther);
+                             $('#txtAccounts').text();
+                             $('#txtDateCreated').text(val.date_entered);
+                             str=val.states_c;
+                             res=str.split("_");
+                             $('#txtStates').text(res[1]);
+                            
+                             
+                          });
+
+                           
+                      },
+                      // error:function(xhr,status){
+                      //   alert(xhr+'  :'+status);
+                      //}
+              
+                     
+
+                  });          
+         
+
 
           });
 
