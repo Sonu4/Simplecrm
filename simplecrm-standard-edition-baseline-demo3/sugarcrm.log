@@ -5286,3 +5286,19 @@ Sat May 19 10:44:19 2018 [3685][1][FATAL] Error running count query for shubh_Bo
  AND jt2.deleted=0 where (bookstore=='AAA') AND shubh_bookstore.deleted=0: MySQL error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=='AAA') AND shubh_bookstore.deleted=0' at line 7
 Mon May 28 09:17:54 2018 [3434][-none-][FATAL] SECURITY: User authentication for admin failed
 Mon May 28 09:17:55 2018 [3434][-none-][FATAL] FAILED LOGIN:attempts[1] - admin
+Mon May 28 14:44:11 2018 [12861][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:44:32 2018 [8554][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:49:28 2018 [12493][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:49:40 2018 [8187][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:55:08 2018 [7966][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:55:51 2018 [12493][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:56:06 2018 [8501][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:56:21 2018 [8554][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:57:02 2018 [8119][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:57:17 2018 [13136][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:57:46 2018 [12846][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 14:59:51 2018 [13136][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 15:00:04 2018 [12756][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 15:10:42 2018 [13136][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Mon May 28 15:19:42 2018 [12756][-none-][FATAL] SECURITY: User authentication for will@gmail.com failed
+Mon May 28 15:19:42 2018 [12756][-none-][FATAL] FAILED LOGIN:attempts[1] - will@gmail.com

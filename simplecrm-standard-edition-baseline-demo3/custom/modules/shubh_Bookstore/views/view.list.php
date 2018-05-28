@@ -1,6 +1,7 @@
 <?php 
 require_once 'config.php';
 require_once('include/MVC/View/views/view.list.php');
+require_once('modules/shubh_Bookstore/shubh_BookstoreListViewSmarty.php');
 //ini_set("display_errors", "on");
 class shubh_BookstoreViewList extends ViewList{
    
@@ -22,9 +23,6 @@ $js =<<<EOD
         // $('#txtName').text($('#MassUpdate > table > tbody > tr:nth-child(1) > td.bookstore_custom.footable-visible.footable-first-column').attr("data-previewid"));
 
         $(' #MassUpdate > table > tbody').find('tr').click(function(){  
-
-    
-
                var row=$(this).find('td.bookstore_custom.footable-visible.footable-first-column').attr("data-previewid");
                  var response=$.ajax({
                       url:'$url_main',
@@ -39,12 +37,12 @@ $js =<<<EOD
                              $('#txtBootkTitle').text(val.bookstore);
                              $('#txtPublishingDate').text(val.publishing_date_c);
                              $('#txtCountries').text(val.countrys_c);
-                             $('#txtAssignedTo').text();
+                             $('#txtAssignedTo').text(val.user_name);
                              var str=val.cities_c;
                              var res=str.split("_");
                              $('#txtCities').text(res[2]);
                              $('#txtBookAuther').text(val.bookauther);
-                             $('#txtAccounts').text();
+                             $('#txtAccounts').text(val.ac_name);
                              $('#txtDateCreated').text(val.date_entered);
                              str=val.states_c;
                              res=str.split("_");
@@ -158,11 +156,11 @@ $js =<<<EOD
 </body>
 EOD;
       		
-
+  echo $js;
 		parent::display();
       
        
-        echo $js;
+      
     }
 
 }
