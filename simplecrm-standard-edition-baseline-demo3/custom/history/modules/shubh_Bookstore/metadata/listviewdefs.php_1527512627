@@ -31,6 +31,13 @@ array (
     'label' => 'LBL_PUBLISHING_DATE',
     'width' => '10%',
   ),
+  'TOTAL_NO_OF_BOOKS_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_TOTAL_NO_OF_BOOKS',
+    'width' => '12%',
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',
@@ -46,13 +53,6 @@ array (
     'width' => '10%',
     'label' => 'LBL_BOOKCOVER',
     'default' => true,
-  ),
-  'TOTAL_NO_OF_BOOKS_C' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_TOTAL_NO_OF_BOOKS',
-    'width' => '12%',
   ),
   'DATE_ENTERED' => 
   array (
