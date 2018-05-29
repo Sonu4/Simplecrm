@@ -33,15 +33,15 @@ $js =<<<EOD
 
                           $(data.result).each(function(index,val){
                             $('#txtBookcover').attr('src','upload/'+val.id+'_bookcover');
-                             $('#txtName').text(val.name);
-                             $('#txtBootkTitle').text(val.bookstore);
+                             $('#txtName').html(val.name);
+                             $('#txtBootkTitle').html(val.bookstore);
                              $('#txtPublishingDate').text(val.publishing_date_c);
                              $('#txtCountries').text(val.countrys_c);
-                             $('#txtAssignedTo').text(val.user_name);
+                             $('#txtAssignedTo').html(val.user_name);
                              var str=val.cities_c;
                              var res=str.split("_");
                              $('#txtCities').text(res[2]);
-                             $('#txtBookAuther').text(val.bookauther);
+                             $('#txtBookAuther').html(val.bookauther);
                              $('#txtAccounts').text(val.ac_name);
                              $('#txtDateCreated').text(val.date_entered);
                              str=val.states_c;

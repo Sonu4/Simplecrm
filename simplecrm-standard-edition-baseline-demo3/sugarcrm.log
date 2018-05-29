@@ -5302,3 +5302,14 @@ Mon May 28 15:00:04 2018 [12756][1][FATAL] Exception in Controller: Error retrie
 Mon May 28 15:10:42 2018 [13136][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
 Mon May 28 15:19:42 2018 [12756][-none-][FATAL] SECURITY: User authentication for will@gmail.com failed
 Mon May 28 15:19:42 2018 [12756][-none-][FATAL] FAILED LOGIN:attempts[1] - will@gmail.com
+Tue May 29 12:40:41 2018 [7522][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 16:18:24 2018 [10536][1][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Tue May 29 16:30:14 2018 [8066][adaf8b0c-7547-8b64-88af-5b0cfcc2a3ce][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Tue May 29 17:28:03 2018 [8066][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 17:28:34 2018 [12377][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 17:35:52 2018 [12544][1][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Tue May 29 17:38:28 2018 [12544][a92d29ab-4a55-11d6-a8f8-5b0d3fb24260][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Tue May 29 17:40:42 2018 [12544][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 17:41:02 2018 [8066][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 17:41:12 2018 [13421][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Tue May 29 17:44:40 2018 [13421][64a7bce8-afef-b83a-d72d-5b0d432b4add][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
