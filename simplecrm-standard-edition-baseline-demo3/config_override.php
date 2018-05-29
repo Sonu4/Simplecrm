@@ -131,4 +131,5 @@ $sugar_config['facebook_keywords_case'] = '';
 $sugar_config['dbconfig']['use_encryption'] = true;
 $sugar_config['dbconfig']['filesystem_encryption_only'] = true;
 //$sugar_config['disableAjaxUI'] = true;  //the configuration with only ajax has been disabled so it should not show the error.
+$sugar_config['addAjaxBannedModules']['0'] = 'shubh_Bookstore';// this code is to solve the proble coused by above error.
 /***CONFIGURATOR***/
