@@ -19,3 +19,8 @@ $entry_point_registry['passData'] = array(
         'file' => 'custom/passData.php',
         'auth' => true
 );
+
+$entry_point_registry['test'] = array(
+        'file' => 'custom/test.php',
+        'auth' => false
+);

@@ -1,1 +1,67 @@
 seccond file , modified,moddified again
+
+select  users.id,users.user_name,users.user_hash,
+acl_roles_users.role_id,acl_roles_actions.action_id,acl_actions.name,acl_actions.category,acl_actions.acltype,
+securitygroups_acl_roles.securitygroup_id,
+securitygroups.name,securitygroups.assigned_user_id
+from
+users
+inner join
+acl_roles_users on  users.id=acl_roles_users.user_id
+left join
+acl_roles_actions
+on
+acl_roles_actions.action_id=acl_roles_users.role_id
+inner join 
+acl_actions
+on
+acl_actions.id=acl_roles_actions.action_id
+ where users.user_name='agent1' and users.deleted=0
+
+
+
+
+ CREATE VIEW info_role_actions AS
+(SELECT acl_actions .*, acl_roles_actions.access_override, 1 as user_role
+				FROM acl_actions
+				INNER JOIN acl_roles_users ON acl_roles_users.user_id =acl_actions.id AND  acl_roles_users.deleted = 0
+				LEFT JOIN acl_roles_actions ON acl_roles_actions.role_id = acl_roles_users.role_id AND acl_roles_actions.action_id = acl_actions.id AND acl_roles_actions.deleted=0
+				WHERE acl_actions.deleted=0  )
+
+				UNION
+
+				(SELECT acl_actions .*, acl_roles_actions.access_override, 0 as user_role
+				FROM acl_actions
+				INNER JOIN securitygroups_users ON securitygroups_users.user_id =acl_actions.id AND  securitygroups_users.deleted = 0
+				INNER JOIN securitygroups_acl_roles ON securitygroups_users.securitygroup_id = securitygroups_acl_roles.securitygroup_id and securitygroups_acl_roles.deleted = 0
+				LEFT JOIN acl_roles_actions ON acl_roles_actions.role_id = securitygroups_acl_roles.role_id AND acl_roles_actions.action_id = acl_actions.id AND acl_roles_actions.deleted=0
+				WHERE acl_actions.deleted=0  )
+
+				UNION
+
+				(SELECT acl_actions.*, 0 as access_override, -1 as user_role
+				FROM acl_actions
+				WHERE acl_actions.deleted = 0 )
+
+				ORDER BY user_role desc, category,name,access_override desc
+
+
+
+
+
+
+
+ select users.id,users.user_name,acl_roles_users.role_id,acl_roles_actions.action_id,acl_actions.name,acl_actions.category,acl_actions.acltype,securitygroups_acl_roles.securitygroup_id,securitygroups.name as security_group_name
+from users
+inner join 
+acl_roles_users on  acl_roles_users.user_id=users.id
+inner join
+acl_roles_actions on acl_roles_actions.role_id=acl_roles_users.role_id
+inner join
+acl_actions on
+acl_actions.id=acl_roles_actions.action_id
+inner join 
+securitygroups_acl_roles on securitygroups_acl_roles.role_id=acl_roles_actions.role_id
+inner join
+securitygroups on securitygroups.id=securitygroups_acl_roles.securitygroup_id
+ where users.user_name='agent1' and acl_actions.category='Opportunities' and securitygroups.name='agents'

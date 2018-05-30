@@ -58,6 +58,8 @@ class OpportunitiesViewList extends ViewList {
 	
   	function display()
  	{
+ 		global $current_user;
+
 			echo $js =<<<EOD
 		<script>
 		
@@ -81,6 +83,10 @@ class OpportunitiesViewList extends ViewList {
 		{
 		$(this).html("<span class='label label-darkblue'>Account Opened</span>");
 		}
+
+
+		alert('$current_user->id');
+
 	
 });	
 			})

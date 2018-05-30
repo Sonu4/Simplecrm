@@ -5313,3 +5313,36 @@ Tue May 29 17:40:42 2018 [12544][1][FATAL] Exception in Controller: Error retrie
 Tue May 29 17:41:02 2018 [8066][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
 Tue May 29 17:41:12 2018 [13421][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
 Tue May 29 17:44:40 2018 [13421][64a7bce8-afef-b83a-d72d-5b0d432b4add][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Wed May 30 09:58:44 2018 [4211][e2a7064d-8673-e02d-c7b4-5b0bab4e08c6][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Wed May 30 10:24:24 2018 [1953][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 10:24:42 2018 [4593][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 11:17:02 2018 [4196][2022fa5f-2a57-85e3-3bc7-5b0bc6bf25ae][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Wed May 30 11:22:34 2018 [4200][b1eee16e-1319-d241-d7bb-5b0bc5dec7c4][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Wed May 30 14:04:54 2018 [8265][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:05:02 2018 [8265][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:08:27 2018 [8393][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:08:33 2018 [8393][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:21:26 2018 [10670][39057247-64dd-74cb-b8b5-5b0e62c08c0a][FATAL]  Query Failed: SELECT * FROM lead_and_opportunities_scoring where id='1': MySQL error 1146: Table 'simpleshubhdb.lead_and_opportunities_scoring' doesn't exist
+Wed May 30 14:21:49 2018 [10353][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:21:49 2018 [10353][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:21:57 2018 [10353][-none-][FATAL] SECURITY: User authentication for sonu4 failed
+Wed May 30 14:21:57 2018 [10353][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu4
+Wed May 30 14:23:04 2018 [8361][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:23:04 2018 [8361][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:23:52 2018 [8265][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:23:52 2018 [8265][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:24:26 2018 [8266][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:24:26 2018 [8266][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:24:39 2018 [8361][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:24:39 2018 [8361][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:25:54 2018 [10353][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:26:04 2018 [10353][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:26:12 2018 [10353][1][FATAL] Exception in Controller: Error retrieving record. This record may be deleted or you may not be authorized to view it.
+Wed May 30 14:28:14 2018 [10354][-none-][FATAL] SECURITY: User authentication for manager failed
+Wed May 30 14:28:14 2018 [10354][-none-][FATAL] FAILED LOGIN:attempts[1] - manager
+Wed May 30 14:29:37 2018 [10671][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:29:37 2018 [10671][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:30:01 2018 [8009][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:30:01 2018 [8009][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu
+Wed May 30 14:30:09 2018 [8009][-none-][FATAL] SECURITY: User authentication for sonu failed
+Wed May 30 14:30:09 2018 [8009][-none-][FATAL] FAILED LOGIN:attempts[1] - sonu

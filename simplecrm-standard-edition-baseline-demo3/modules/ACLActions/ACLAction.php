@@ -644,16 +644,4 @@ class ACLAction  extends SugarBean{
         unset($_SESSION['ACL']);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
