@@ -85,7 +85,7 @@ class OpportunitiesViewList extends ViewList {
 		}
 
 
-		alert('$current_user->id');
+		//alert('$current_user->id');
 
 	
 });	

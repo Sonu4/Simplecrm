@@ -5,7 +5,8 @@
 
 ini_set("display_errors","On");
 require_once('config.php');
-require_once('data/SugarBean.php');  
+require_once('data/SugarBean.php');
+  
 
 // require_once('/include/SugarQuery/SugarQuery.php');
 
