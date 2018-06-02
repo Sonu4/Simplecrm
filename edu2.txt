@@ -64,4 +64,9 @@ inner join
 securitygroups_acl_roles on securitygroups_acl_roles.role_id=acl_roles_actions.role_id
 inner join
 securitygroups on securitygroups.id=securitygroups_acl_roles.securitygroup_id
- where users.user_name='agent1' and acl_actions.category='Opportunities' and securitygroups.name='agents'
+
+
+
+cstm_dropdown
+
+select country_cstm.country_key,country_cstm.country_name,concat(country_cstm.country_name,'_',state_cstm.state_name) as states,state_cstm.state_name from country_cstm inner join state_cstm on state_cstm.state_key=country_cstm.country_key

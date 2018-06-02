@@ -8,6 +8,12 @@ $dictionary['shubh_Bookstore']['fields']['cities_c']['labelValue']='Cities';
 
  
 
+ // created: 2018-06-02 10:00:59
+$dictionary['shubh_Bookstore']['fields']['state_c_cstm_c']['inline_edit']='1';
+$dictionary['shubh_Bookstore']['fields']['state_c_cstm_c']['labelValue']='state c cstm';
+
+ 
+
  // created: 2018-05-19 13:39:54
 $dictionary['shubh_Bookstore']['fields']['total_no_of_books_c']['inline_edit']='1';
 $dictionary['shubh_Bookstore']['fields']['total_no_of_books_c']['labelValue']='Total no of books';
@@ -27,6 +33,12 @@ $dictionary['shubh_Bookstore']['fields']['states_c']['labelValue']='states';
  // created: 2018-05-24 14:10:36
 $dictionary['shubh_Bookstore']['fields']['countrys_c']['inline_edit']='1';
 $dictionary['shubh_Bookstore']['fields']['countrys_c']['labelValue']='Countries';
+
+ 
+
+ // created: 2018-06-02 09:47:04
+$dictionary['shubh_Bookstore']['fields']['country_c_cstm_c']['inline_edit']='1';
+$dictionary['shubh_Bookstore']['fields']['country_c_cstm_c']['labelValue']='country ';
 
  
 

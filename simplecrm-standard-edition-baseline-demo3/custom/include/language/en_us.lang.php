@@ -567,3 +567,21 @@ $GLOBALS['app_list_strings']['cities_list']=array (
   'INDIA_MAHARASHTRA_BHANDARA' => 'BHANDARA',
   'INDIA_MAHARASHTRA_GONDIA' => 'GONDIA',
 );
+
+
+$new_country_cstm_array=array(
+   ''=>'',
+);
+$db = DBManagerFactory::getInstance(); 
+$result=$db->query("select country_key,country_name from country_cstm");
+while($row=$db->fetchRow($result)){$new_country_cstm_array[$row['country_key']] = $row['country_name'];}
+$GLOBALS['app_list_strings']['country_cstm_list']=$new_country_cstm_array; 
+
+
+$new_state_cstm_array=array(
+   ''=>'',
+);
+$db = DBManagerFactory::getInstance(); 
+$result=$db->query("select state_key,state_name from country_cstm");
+while($row=$db->fetchRow($result)){$new_state_cstm_array[$row['state_key']] = $row['state_name'];}
+$GLOBALS['app_list_strings']['state_cstm_list']=$new_state_cstm_array; 
