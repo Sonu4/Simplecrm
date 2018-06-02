@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           
-                  <form enctype="multipart/form-data">
+                  <form enctype="multipart/form-data" action="php/inserData.php">
                     <div class="form-group">
                     <div class="form-group floating-label-form-group controls">
                       <label for="txtName">Name</label>
@@ -122,10 +122,10 @@
                      </tr>
                    </table>
                   </div>
-                    <div id="imgProfile" class="form-group">
+                    <!-- <div id="imgProfile" class="form-group">
                     <label>Select Profile Image</label><br>
                       <input type="file" id="image" name="image">
-                    </div>
+                    </div> -->
                     <button id="btnSubmit" type="button" class="btn btn-default">Submit</button>
                   </form>
 
@@ -195,8 +195,6 @@
                     alert('Enter Genger');
                   }else if ($('#txtAccountType').val()=='') {
                     alert('Enter Account Type');
-                  }else if($('#image').val()==''){
-                    alert('Select Image');
                   }else{
 
                     // Validations are completed And actual code starts from hear.
@@ -219,19 +217,27 @@
                         method:"post",
                         data:inserData,
                         dataType:"json",
-                        statusCode: {
+                        statusCode: {          // shows the status of the replay
                           404: function () {
                             //error
                           },
                           200: function (data) {
                             //response data
-                            alert(data);
-                            console.log(data);
+                            //alert(data);
+                            
                           }
                         },
                         success:function(response){
                           alert(response.success);
-                          console.log(data);
+                          if (response.success=="success") {
+                          
+                               $('#txtEmail').val('');
+                               $('#txtName').val('');
+                               $('#txtPass1').val('');
+                               $('#txtPass2').val('');
+                               $('#txtGenger').val('');
+                               $('#txtAccountType').val('');
+                          }
                         },
                       });
 
@@ -243,6 +249,6 @@
                 }
             });
                   
-          });
+     });
 </script>
 </html>
