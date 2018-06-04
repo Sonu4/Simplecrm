@@ -146,19 +146,28 @@
   </body>
 <script type="text/javascript">
     $(document).ready(function(){
-      var email=$('#txtEmail').val();
-      var password=$('#txtPassword').val();
+
+      
+     
       $('#btnSubmit').click(function(){
+        var email=$('#txtEmail').val();
+        var password=$('#txtPassword').val();
+
             $.ajax({
           url:'php/authenticateData.php',
-          data:{email:email,password:password},
+          data:{email:email,password:password},    
           method:"post",
           dataType:"json",
           success:function(data){
+            console.log(data);
             alert(data.success);
-            if (data.success) {
+            if (data.success=='success') {
               window.location.replace("profile.php");
+              var listvalues = { "id": data.id, "type_of_user":data.type_of_user}
+               localStorage.setItem('lists', JSON.stringify(listvalues)); 
+
             }
+
           }
       });
       });

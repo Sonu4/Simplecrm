@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Clean Blog </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    
 
     <!-- The minified JQuery -->
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
@@ -29,11 +30,11 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-default" id="mainNav1">
       <div class="container">
         <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+          Menu's 
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -55,67 +56,45 @@
       </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
-      <div class="overlay"></div>
+ <hr>  
+
+    <!-- Post Content -->
+    <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Contact Me</h1>
-              <span class="subheading">Have questions? I have answers.</span>
+          <div class="col-lg-10 col-md-6 mx-auto">
+           
+          <label>Name:-</label>&nbsp;                  
+          <label id="lblName">Name</label><br>
+           <label>Type:-  </label>&nbsp;
+          <label id="lblType">Type</label><br>
+           <label>Email:-</label>&nbsp;
+          <label id="lblEmail">Email</label>
+ 
+            
+         
+            
+          </div>
+          <div class="col-lg-2 col-md-6 mx-auto">
+           
+           <div class="row">
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img style="width:150px;height:150px;" id="uploadedImage">
+              </a>
             </div>
+           <form enctype="multipart/form-data">
+             <label><small><i>Select Profile Image</i></small></label><br>
+             <input type="file" name="file" id="file" class="btn btn-default"><br>
+             <BUTTON type="submit" name="upload" id="upload" class="btn btn-default">Upload</BUTTON> 
+           </form>
+          </div>  
+
+            
           </div>
         </div>
       </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
-          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-          <form name="sentMessage" id="contactForm" novalidate>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Name</label>
-                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Phone Number</label>
-                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Message</label>
-                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    </article>
 
     <hr>
 
@@ -160,13 +139,61 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
 
   </body>
+<script type="text/javascript">
+   $(document).ready(function(){
+    var listvalues = localStorage.getItem('lists');
+    var finalvalue = JSON.parse(listvalues);
+    var id=finalvalue.id;
+    var type_of_user=finalvalue.type_of_user;
+    console.log(id+':'+type_of_user);
 
+/*----------------This function is responsible for updating Profile image-------*/
+    $.post('php/getImage.php',{id:id},function(data){
+      $('#uploadedImage').attr('src','php/upload/profile/'+data.replace(/\"/g, ""));// this replaces the double quotes with null.
+   });
+
+    $('#upload').click(function(){
+/*----------------This function is responsible for uploading Profile image-------*/
+       
+          var form_data=new FormData();
+          form_data.append('file',$('#file')[0].files[0]); //this is how the files are sent to the server.
+          form_data.append('id',id);
+          //alert(form_data);
+          $.ajax({
+              url:"php/upload.php",
+              method:"POST",
+              data:form_data,
+              contentType:false,
+              cache:false,
+              processData:false,
+              success:function(data){
+                alert(data.success);
+                console.log(data.success);
+              }
+          });
+   
+        
+    });
+       
+    $.ajax({
+      url:'php/getProfile.php',
+      method:"post",
+      dataType:"json",
+      data:{id:id},    
+      success:function(data){
+        $('#lblName').text(data.name);
+        $('#lblType').text(data.type_of_user);
+        $('#lblEmail').text(data.email);
+       
+
+    }
+      });
+
+    
+   });
+</script>
 </html>

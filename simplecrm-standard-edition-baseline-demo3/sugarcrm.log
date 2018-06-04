@@ -6087,3 +6087,7 @@ Sat Jun  2 16:43:05 2018 [15375][-none-][FATAL]  Query Failed: select state_key,
 Sat Jun  2 16:43:05 2018 [15375][1][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
 Sat Jun  2 16:44:05 2018 [15866][-none-][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
 Sat Jun  2 16:44:05 2018 [15866][1][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
+Sat Jun  2 16:45:05 2018 [16164][-none-][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
+Sat Jun  2 16:45:05 2018 [16164][1][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
+Sat Jun  2 16:46:05 2018 [15889][-none-][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
+Sat Jun  2 16:46:05 2018 [15889][1][FATAL]  Query Failed: select state_key,state_name from country_cstm: MySQL error 1054: Unknown column 'state_key' in 'field list'
