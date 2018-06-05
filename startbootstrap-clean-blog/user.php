@@ -142,10 +142,36 @@
           //alert(data);
 
           for (var i = 0;i<data.length; i++) {
-            $('#tblList').append('<tr><td style=" padding-bottom: .5em;">'+data[i].blog_name+'</td></tr style=" padding-bottom: .5em;"><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style="vertical-align: top;text-align: left;">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><tr><td><img src="php/upload/'+data[i].img_three.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><br /><br /><tr><td><input type="text" id="txtComment" placeholder="Enter Your Commnets" class="form-group"><td><td><input type="submit" id="btnComment" class="btn btn-primary"></td></tr>');
+            $('#tblList').append('<tr><td><label hidden id="lblId">'+data[i].id_b+'</label></td></tr><tr><td style=" padding-bottom: .5em;">'+data[i].blog_name+'</td></tr style=" padding-bottom: .5em;"><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style="vertical-align: top;text-align: left;">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><tr><td><img src="php/upload/'+data[i].img_three.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><br /><br /><tr><td><input type="text" id="txtComment" placeholder="Enter Your Commnets" class="form-group"><td><td><input type="submit" id="btnComment" class="btn btn-primary"></td></tr>');
+
               
           }
         }
+      });
+      /*----------Actual list is shown in here--------------*/
+
+      $(document).on('click','#btnComment',function(){
+       
+
+        var $item = $(this).closest("tr") // Finds the closest row <tr> 
+                       .find('#txtComment')     // Gets a descendent with class="nr"
+                       .val();
+                   
+          var $item_id = $(this).closest("tr")   // Finds the closest row <tr> 
+                         .find("td:first")     // Gets a descendent with class="nr"
+                         .text();               
+alert($item_id);
+alert($item);
+        // $.ajax({
+        //   url:"php/addComments.php",
+        //   method:"post",
+        //   data:{id:$item},
+        //   dataType:"json",
+        //   success:function(data){
+        //     alert(data.success);
+        //   }
+
+        // });
       });
   });
 
