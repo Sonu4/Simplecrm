@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog </title>
+    <title>Clean Blog - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,46 +56,27 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-heading">
-              <h1>Man must explore, and this is exploration at its greatest</h1>
-              <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-              <span class="meta">Posted by
-                <a href="#">Start Bootstrap</a>
-                on August 24, 2018</span>
+            <div class="site-heading">
+              <h1>Clean Blog</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-           
-            <form class="form-group">
-              <div class="form-group">
-                <label class="sr-only" >Email address</label>
-                <input type="email" id="txtEmail" class="form-control" placeholder="Email">
-              </div>
-              <br>
-              <div class="form-group">
-                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                <input type="password" class="form-control" id="txtPassword" placeholder="Password">
-              </div><br><br>
-              <button type="button" id="btnSubmit" class="btn btn-default">Sign in</button>
-            </form>
-            
-          </div>
-        </div>
+    <!-- Main Content -->
+    <div class="container"> 
+      <div class="row">
+        <table id="tblList" style="border-collapse: collapse;"></table>
       </div>
-    </article>
+
+    </div>
 
     <hr>
 
@@ -145,50 +126,29 @@
 
   </body>
 <script type="text/javascript">
-    $(document).ready(function(){
+  $(document).ready(function(){
+      var listvalues = localStorage.getItem('lists');
+      var finalvalue = JSON.parse(listvalues);
+      var id=finalvalue.id;
+      var type_of_user=finalvalue.type_of_user;
 
-      
-     
-      $('#btnSubmit').click(function(){
-        var email=$('#txtEmail').val();
-        var password=$('#txtPassword').val();
+      /*----------Actual list is shown in here--------------*/
 
-            $.ajax({
-          url:'php/authenticateData.php',
-          data:{email:email,password:password},    
-          method:"post",
-          dataType:"json",
-          success:function(data){
-            console.log(data);
-            alert(data.success);
-            if (data.success=='success') {
+      $.ajax({
+        url:"php/getBlogs.php",
+        method:"post",
+        dataType:"json",
+        success:function(data){
+          //alert(data);
 
-              if (data.type_of_user=='Admin') {
-
-                  window.location.replace("admin.php");
-                  var listvalues = { "id": data.id, "type_of_user":data.type_of_user}
-                  localStorage.setItem('lists', JSON.stringify(listvalues)); 
-
-              }else if(data.type_of_user=='Auther'){
-
-                 window.location.replace("profile.php");
-                  var listvalues = { "id": data.id, "type_of_user":data.type_of_user}
-                  localStorage.setItem('lists', JSON.stringify(listvalues)); 
-
-              }else if(data.type_of_user=='Reader'){
-               window.location.replace("user.php");
-               var listvalues = { "id": data.id, "type_of_user":data.type_of_user}
-               localStorage.setItem('lists', JSON.stringify(listvalues)); 
-
-              }
-
+          for (var i = 0;i<data.length; i++) {
+            $('#tblList').append('<tr><td style=" padding-bottom: .5em;">'+data[i].blog_name+'</td></tr style=" padding-bottom: .5em;"><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style="vertical-align: top;text-align: left;">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><tr><td><img src="php/upload/'+data[i].img_three.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><br /><br /><tr><td><input type="text" id="txtComment" placeholder="Enter Your Commnets" class="form-group"><td><td><input type="submit" id="btnComment" class="btn btn-primary"></td></tr>');
               
-            }
-
           }
+        }
       });
-      });
-      
-    });
+  });
+
+  // SS=<td>&nbsp;</td>
 </script>
 </html>

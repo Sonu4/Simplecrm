@@ -91,80 +91,36 @@
              <BUTTON type="submit" name="upload" id="upload" class="btn btn-default">Upload</BUTTON> 
            </form>
           </div>  
+          <br>  
+        </div>
+<div>
+              <div class="panel panel-success">
+                <div class="panel-heading">All The Latest Articals</div>
+                <div class="panel-body">
+                    <table class="table table-striped table-hover">
+                    <th></th>
+                    <th></th>
 
+                      <th>Blog's Name</th>
+                      <th>Blog's Body</th>
+                      <th>Blog's Auther</th>
+                      <th>Operations</th>
+                  <th></th>
+                  <th></th>
+                    <tbody id="tblBody">
+                      
+                    </tbody>
+                    </table>
+                      
+                </div>
+              </div>
+
+</div>
+      </div>
+    <br>
+   
+        
             
-          </div>
-        </div>
-        <br>
-    <div> 
-        <div class="row">
-          <div class="form-group">
-           <label>Start Writing Your Blog</label><br>
-            <input type="text" name="Blog Name" placeholder=" Blog Name" id="blogName">
-          </div>
-        </div> 
-        <div class="row">
-                  <div class="panel panel-primary ">
-                    <div class="panel-body">
-                        <form>
-                          <div class="form-group">
-                         <textarea type="text"  placeholder="Write your blog." id="blogBody" style="width:1000px; height:250px;"></textarea>
-                          </div>
-                        </form>
-                    </div>
-                  </div>
-        </div>
-  
-        <br>  
-        <div class="row">
-          <table class="table">
-            <th>Picture One.</th>
-            <th>Picture Two.</th>
-            <th>Picture Three.</th>
-            <th>Picture Four.</th>
-          </table>
-          <tbody>
-            <th>
-              <div class="row">
-                <div class="col-xs-6 col-md-3">
-                  <img style="width:150px;height:200px;" id="imgUpload_1" >&nbsp;
-                  <input type="file" name="blog_img_1" id="blog_img_1" style="width: 125px; border: 1px solid #FFF;" class="btn btn-default">
-
-                 </div>
-              </div>
-            </th>
-            <th>
-              <div class="row">
-                <div class="col-xs-6 col-md-3">
-                  <img style="width:150px;height:200px;" id="imgUpload_2" >&nbsp;
-                  <input type="file" name="blog_img_2" id="blog_img_2" style="width: 123px; border: 1px solid #FFF;" class="btn btn-default">
-
-                 </div>
-              </div>
-            </th>
-            <th>
-              <div class="row">
-                <div class="col-xs-6 col-md-3">
-                  <img style="width:150px;height:200px;" id="imgUpload_3" >&nbsp;
-                  <input type="file" name="blog_img_3" id="blog_img_3" style="width: 123px; border: 1px solid #FFF;" class="btn btn-default">
-
-                 </div>
-               </div>
-            </th>
-            <th>
-              <div class="row">
-                <div class="col-xs-6 col-md-3">
-                 <img style="width:150px;height:200px;" id="imgUpload_4" >&nbsp;
-                 <input type="file" name="blog_img_4" id="blog_img_4" style="width: 123px; border: 1px solid #FFF;" class="btn btn-default">
-
-                 </div>
-            </th>
-          </tbody>
-        </div> 
-        <div class="row">
-          <button type="button" name="submitBlog" id="submitBlog" class="btn btn-primary">Publish Blog</button> 
-        </div>
-    </div>         
    </div>
   </div>
     </article>
@@ -264,121 +220,45 @@
       dataType:"json",
       data:{id:id},    
       success:function(data){
-        
-          $('#lblName').text(data.name);
-          $('#lblType').text(data.type_of_user);
-          $('#lblEmail').text(data.email);
-         }
+        $('#lblName').text(data.name);
+        $('#lblType').text(data.type_of_user);
+        $('#lblEmail').text(data.email);
+       
+
+    }
       });
 
-/*------------From Here Operations On Blogs Body Will Start-----------*/
+/*----------------------From This Admin Operations Begin-----------------------------*/
 
-      
-      $('#submitBlog').click(function(){
-        
-          var form_data=new FormData();
-          form_data.append('blog_img_1',$('#blog_img_1')[0].files[0]);// Image one of blog.
-          form_data.append('blog_img_2',$('#blog_img_2')[0].files[0]);// Image teo of blog.
-          form_data.append('blog_img_3',$('#blog_img_3')[0].files[0]);// Image three of blog.
-          form_data.append('blog_img_4',$('#blog_img_4')[0].files[0]);// Image four of blog.
-          form_data.append('blogName',$('#blogName').val());// Blogs Name.
-          form_data.append('blogBody',$('#blogBody').val());// Blogs Body.
-          form_data.append('id',id);
-
-          $.ajax({
-            url:"php/blogUpload.php",
-            method:"post",
-            data:form_data,
-            dataType:"json",
-            contentType:false,
-            cache:false,
-            processData:false,
-            success:function(data){
-              alert(data);
-              if (data =='success') {
-                $('#blogName').val('');
-                $('#blogBody').val('');
-                 $('#imgUpload_1').attr('src','');
-                 $('#imgUpload_2').attr('src','');
-                 $('#imgUpload_3').attr('src','');
-                 $('#imgUpload_4').attr('src','');
-
-              }
-            }
-          });
-
-     
-     
-      });
-      /*------------This Section just preview the Image---------------------*/ 
-
-       function readURL_1(input) {
-        if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imgUpload_1').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
+    $.ajax({
+        url:"php/getAdminData.php",
+        method:"post",
+        dataType:"json",
+        success:function(data){
+          for(var i=0;i<data.length;i++){
+            $('#tblBody').append('<tr><td><label hidden id="lblId">'+data[i].id_b+'</label></td><td></td><td>'+data[i].blog_name+'</td><td>'+data[i].blog_body+'</td><td>'+data[i].name+'</td><td><butto class="btn btn-primary" id="btnApr">Aprove</button><tb><td></td><td></td></tr>');
+            //alert(data[i].blog_name+':'+data[i].blog_body+':'+data[i].name);
+          }
         }
+    });
+/*------This checks the click of button and update the database---------------------*/
+   $(document).on('click','#btnApr',function(){
+       
 
-        $("#blog_img_1").change(function(){
-            readURL_1(this);
+        var $item = $(this).closest("tr")   // Finds the closest row <tr> 
+                       .find("td:first")     // Gets a descendent with class="nr"
+                       .text();         // Retrieves the text within <td>
+        $.ajax({
+          url:"php/updateBlog.php",
+          method:"post",
+          data:{id:$item},
+          dataType:"json",
+          success:function(data){
+            alert(data.success);
+          }
+
         });
-
-      /*--------------------------------------------------------------------------*/  
-         function readURL_2(input) {
-        if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imgUpload_2').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#blog_img_2").change(function(){
-            readURL_2(this);
-        });
-
-        /*--------------------------------------------------------------------------*/  
-         function readURL(input) {
-        if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imgUpload_3').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#blog_img_3").change(function(){
-            readURL(this);
-        });
-
-        /*--------------------------------------------------------------------------*/  
-         function readURL_4(input) {
-        if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imgUpload_4').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#blog_img_4").change(function(){
-            readURL_4(this);
-        });
-
+   });
 
    });
 </script>
