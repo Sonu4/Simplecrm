@@ -116,7 +116,7 @@
         </div>
   
         <br>  
-        <div class="row">
+      <div class="row">
           <table class="table">
             <th>Picture One.</th>
             <th>Picture Two.</th>
@@ -163,8 +163,22 @@
         </div> 
         <div class="row">
           <button type="button" name="submitBlog" id="submitBlog" class="btn btn-primary">Publish Blog</button> 
-        </div>
-    </div>         
+        </div>    
+    </div> 
+    <br>
+        <br>
+    <div class="row">
+         <table class="table">
+            <th>Blog Name</th>
+            <th colspan="1">Content</th>
+            
+            
+            <th>Action</th>
+            <tbody id="tblDetails">
+
+            </tbody>
+          </table>
+        </div>        
    </div>
   </div>
     </article>
@@ -379,6 +393,20 @@
             readURL_4(this);
         });
 
+/*-------------We are getting all the blogs the user has uploadede -------------------*/
+
+    $.ajax({
+      url:"php/getBlogsById.php",
+      method:"post",
+      data:{id:id},
+      dataType:"json",
+      success:function(data){
+        for (var i=0;i<data.length;i++) {
+          $('#tblDetails').append('<tr><td>'+data[i].blog_name+'</td><td>'+data[i].blog_body+'</td><td><button class="btn btn-primary">Delete</button></td></tr>');
+        }
+        
+      }
+    });
 
    });
 </script>
