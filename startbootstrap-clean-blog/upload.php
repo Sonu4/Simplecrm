@@ -12,3 +12,6 @@ $targetPath = "uploads/".$_FILES['userImage']['name'];
 }
 
 ?>
+
+
+           

@@ -169,16 +169,19 @@
         <br>
     <div class="row">
          <table class="table">
+            <th></th>
             <th>Blog Name</th>
             <th colspan="1">Content</th>
             
             
             <th>Action</th>
+            <th></th>
             <tbody id="tblDetails">
 
             </tbody>
           </table>
-        </div>        
+      </div> 
+           
    </div>
   </div>
     </article>
@@ -225,6 +228,28 @@
       CKEDITOR.replace( 'editor1' );
       CKEDITOR.config.width = '200%';
     </script> -->
+
+    <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>     
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <table class="table table-striped">
+                  <th></th>
+                  <th>Comments</th>
+                  <tbody id="tblComments" class="table">  
+                  </tbody>
+                </table>
+              </div>  
+            </form>  
+          </div>
+        </div>
+      </div>
+
 
     </footer>
 
@@ -402,11 +427,52 @@
       dataType:"json",
       success:function(data){
         for (var i=0;i<data.length;i++) {
-          $('#tblDetails').append('<tr><td>'+data[i].blog_name+'</td><td>'+data[i].blog_body+'</td><td><button class="btn btn-primary">Delete</button></td></tr>');
+          $('#tblDetails').append('<tr><td><label hidden id="lblID">'+data[i].id_b+'</label></td><td>'+data[i].blog_name+'</td><td>'+data[i].blog_body+'</td><td><button id="btnDelete" class="btn btn-primary">Delete</button><td><button class="btn btn-primary" id="btnComments">Comments</button></td></td></tr>');
         }
         
       }
     });
+
+    $(document).on('click','#btnDelete',function(){
+          var $item=$(this).closest('tr').find('td:first').text();
+          $.ajax({
+            url:"php/deleteBlog.php",
+            method:"post",
+            data:{id:$item},
+            dataType:"json",
+            success:function(data){
+              alert(data.success);
+            }
+          });
+    });
+
+/*-------------This section is for operations on comments--------------*/
+  
+  $(document).on('click','#btnComments',function(){
+        
+
+        var $item=$(this).closest('tr').find('td:first').text();
+       
+        $.ajax({
+        url:"php/getComments.php",
+        method:"post",
+        data:{id:$item},
+        dataType:"json",
+        success:function(data){
+         $('#tblComments').empty();
+          for (var i =0;i<data.length;i++) {
+             $('#tblComments').append('<tr><td><label hidden>'+data[i].id+'</label></td><td>'+data[i].comment+'</td></tr>');
+          }
+         
+          
+        }
+    });
+/*------------This section Creates a comments Toggle--------------------------*/
+    $('#addPage').modal('toggle');    
+
+  });
+
+    
 
    });
 </script>
