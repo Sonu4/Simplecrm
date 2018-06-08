@@ -73,28 +73,11 @@
     <!-- Main Content -->
     <div class="container"> 
       <div class="row">
-        <table style="border-collapse: collapse;">
-          <th></th>
-          <th></th>
-          <tbody id="tblList" ">
-           
+        <table>
+          <tbody id="tblData">
+            
           </tbody>
-
         </table>
-       <!--  <table class="table table-striped table-hover">
-                    <th></th>
-                    <th></th>
-
-                      <th>Blog's Name</th>
-                      <th>Blog's Body</th>
-                      <th>Blog's Auther</th>
-                      <th>Operations</th>
-                  <th></th>
-                  <th></th>
-                    <tbody id="tblBody">
-                      
-                    </tbody>
-                    </table> -->
       </div>
 
     </div>
@@ -160,53 +143,25 @@
         method:"post",
         dataType:"json",
         success:function(data){
-          //alert(data);
+         
 
           for (var i = 0;i<data.length; i++) {
-
-          $('#tblList').append('<tr><td><label hidden id="lblID">'+data[i].id_b+'</label></td><td>'+data[i].blog_name+'</td></tr><tr><td colspan="2"><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'"></td></tr><tr><td colspan="2">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two+'" width="500px" height="330px"></td><td><img src="php/upload/'+data[i].img_three+'" width="500px" height="330px"></td></tr><tr><td><input type="text" placeholder="Add comment" id="txtComment" class="form-control"></td><td><button class="btn btn-primary" id="btnAdd">Add</button></td></tr>');
-          
-
-          
-
-            //   $.ajax({
-            //   url:"php/addComments.php",
-            //   method:"post",
-            //   data:{id:$item},
-            //   dataType:"json",
-            //   success:function(data){
-            //     alert(data.success);
-            //   }
-
-            // });
-
-
-          //$('#tblBody').append('<tr><td><label hidden id="lblId">'+data[i].id_b+'</label></td><td></td><td>'+data[i].blog_name+'</td><td>'+data[i].blog_body+'</td><td>'+data[i].name+'</td><td><butto class="btn btn-primary" id="btnApr">Aprove</button><tb><td></td><td></td></tr>');
-
-           //$('#tblList').append('<tr><td><label hidden id="lblId">'+data[i].id_b+'</label></td></tr><tr><td style=" padding-bottom: .5em;">'+data[i].blog_name+'</td></tr style=" padding-bottom: .5em;"><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style="vertical-align: top;text-align: left;">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><tr><td><img src="php/upload/'+data[i].img_three.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><br /><br /><div class="row"><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><input type="text" id="txtComment" placeholder="Add your comment here" class="form-control" name="txtComment"><td>&nbsp;</td><td>&nbsp;</td><td><button class="btn btn-primary" id="btnAdd" name="btnAdd">Submit</button></td></tr></div><br><br><br><br>');
+              
+              $('#tblData').append('<tr><td colspan="3">'+data[i].blog_name+'</td></tr><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" width="300px" height="300px"></td><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" width="300px" height="300px"></td></tr><tr><td width="20px" hidden="true">'+data[i].id_b+'</td><td><input type="text" class="form-control" placeholder="Enter Your Comments" id="txtComments"></td><td style="text-align:center;"><button class="btn btn-primary" id="btnComment">Add</button></td></tr>');
        
           }
         }
       });
       /*----------Actual list is shown in here--------------*/
 
-      $('#tblList tbody').on('click','#btnAdd',function(){
-       
-        
-       //$item=$(this).closest('tr:nth-child(4)').find('#txtComment').val();
-       
-       alert($item);
-        // $.ajax({
-        //   url:"php/addComments.php",
-        //   method:"post",
-        //   data:{id:$item},
-        //   dataType:"json",
-        //   success:function(data){
-        //     alert(data.success);
-        //   }
-
-        // });
+      $(document).on('click','#btnComment',function(){
+          $item=$(this).closest('tr'); // Here we are using php in the JQuery Script by varible $item
+          var id=$item.find('td[hidden="true"]').html();
+          var text=$item.find('#txtComments').val();
+          alert(id);
+          alert(text);
       });
+      
   });          
 </script>
 </html>
