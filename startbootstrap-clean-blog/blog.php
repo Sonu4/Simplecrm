@@ -37,10 +37,7 @@
     p{
       text-align: justify;
     }
-    p:hover{
-      color: red;
-    }
-
+    
   </style>
 
   <body>
@@ -90,7 +87,7 @@
     <!-- Main Content -->
     <div class="container"> 
       <div class="row">
-        <table id="tblList" class="table" style="border-collapse: collapse;" ></table>
+        <table id="tblList" class="table table-striped" style="border-collapse: collapse;" ></table>
       </div>
 
     </div>
@@ -144,38 +141,29 @@
   </body>
 <script type="text/javascript">
   $(document).ready(function(){
-      var listvalues = localStorage.getItem('lists');
+      var listvalues = localStorage.getItem('ids');
       var finalvalue = JSON.parse(listvalues);
-      var id=finalvalue.id;
-      var type_of_user=finalvalue.type_of_user;
-
+      var ids=finalvalue.id;
+      
       /*----------Actual list is shown in here--------------*/
 
       $.ajax({
-        url:"php/getBlogs.php",
+        url:"php/getOneBlog.php",
         method:"post",
+        data:{id:ids},
         dataType:"json",
         success:function(data){
-          //alert(data);
+          
 
-          for (var i = 0;i<data.length; i++) {
-
-            $('#tblList').append('<tr><td colspan="2"><label style="text-align:center;">'+data[i].blog_name+'</label></td></tr><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" width="300px" height="300px"></td><td><p href="index.php">'+data[i].blog_body.substr(0,300)+'....</p></td></tr><td><button class="btn btn-primary" id="btnView">View</button></td><td><h5 hidden="true">'+data[i].id_b+'<h5><td></tr><hr>');
+            $('#tblList').append('<tr><td colspan="2"><label style="text-align:center;">'+data[0].blog_name+'</label></td></tr><tr><td><img src="php/upload/'+data[0].img_one.replace(/\"/g, "")+'" width="300px" height="300px"></td><td colspan="2"><p href="index.php">'+data[0].blog_body+'</p></td></tr><tr><td><img src="php/upload/'+data[0].img_two.replace(/\"/g, "")+'" width="300px" height="300px"></td><td style="text-align:center;"><img src="php/upload/'+data[0].img_three.replace(/\"/g, "")+'" width="300px" height="300px"></td><td><img src="php/upload/'+data[0].img_four.replace(/\"/g, "")+'" width="300px" height="300px"></td></tr></tr><hr>');
 
             // $('#tblList').append('<tr style="margin-top:50px;"><td colspan="5" style=" padding-bottom: .5em; text-align:center; "><strong>'+data[i].blog_name+'</strong></td></tr style=" padding-bottom: .5em;"><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan="3" style="vertical-align: top;text-align: justify;">'+data[i].blog_body+'</td></tr><tr><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><tr style="margin-bottom:50px;"><td><img src="php/upload/'+data[i].img_three.replace(/\"/g, "")+'" style="width:300px;height:300px"></td><td></td></tr><br /><br />');
             
-          }
+          
         }
       });
 
-      $(document).on('click','#btnView',function(){
-            var id_b=$(this).closest('tr').find('h5').text();
-            var idVal={id:id_b}
-            localStorage.setItem('ids',JSON.stringify(idVal));
-            window.location.replace("blog.php");
-            
-      });
-
+     
 
   });
 
