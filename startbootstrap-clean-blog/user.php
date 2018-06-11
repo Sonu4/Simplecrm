@@ -147,7 +147,7 @@
 
           for (var i = 0;i<data.length; i++) {
               
-              $('#tblData').append('<tr><td colspan="3">'+data[i].blog_name+'</td></tr><tr><td><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" width="300px" height="300px"></td><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" width="300px" height="300px"></td></tr><tr><td width="20px" hidden="true">'+data[i].id_b+'</td><td><input type="text" class="form-control" placeholder="Enter Your Comments" id="txtComments"></td><td style="text-align:center;"><button class="btn btn-primary" id="btnComment">Add</button></td></tr>');
+              $('#tblData').append('<tr><td colspan="2" style="text-align:center;"><strong>'+data[i].blog_name+'</strong></td></tr><tr><td style="text-align:center;"><img src="php/upload/'+data[i].img_one.replace(/\"/g, "")+'" width="300px" height="300px"></td><td><img src="php/upload/'+data[i].img_two.replace(/\"/g, "")+'" width="300px" height="300px"></td></tr><br /><br /><tr><td colspan="2" style="text-align:justify;"><p>'+data[i].blog_body+'</p></td></tr><br><hr><tr><td style="text-align:center;"><img src="php/upload/'+data[i].img_three.replace(/\"/g,"")+'" width="300px" height="300px"></td><td><img src="php/upload/'+data[i].img_three.replace(/\"/g,"")+'" width="300px" height="300px"></td></tr><tr><td width="20px" hidden="true">'+data[i].id_b+'</td><td><input type="text" class="form-control" placeholder="Enter Your Comments" id="txtComments"></td><td style="text-align:center;"><button class="btn btn-primary" id="btnComment">Add</button></tr>');
        
           }
         }
@@ -158,8 +158,18 @@
           $item=$(this).closest('tr'); // Here we are using php in the JQuery Script by varible $item
           var id=$item.find('td[hidden="true"]').html();
           var text=$item.find('#txtComments').val();
-          alert(id);
-          alert(text);
+          // alert(id);
+          // alert(text);
+
+          $.ajax({
+            url:"php/addComments.php",
+            method:"post",
+            data:{id_b:id,comment:text},
+            dataType:"json",
+            success:function(data){
+              alert(data.success);
+            }
+          });
       });
       
   });          

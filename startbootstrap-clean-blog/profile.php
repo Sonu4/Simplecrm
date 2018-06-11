@@ -322,7 +322,7 @@
           form_data.append('blog_img_4',$('#blog_img_4')[0].files[0]);// Image four of blog.
           form_data.append('blogName',$('#blogName').val());// Blogs Name.
           form_data.append('blogBody',$('#blogBody').val());// Blogs Body.
-          form_data.append('id',id);
+          form_data.append('id',finalvalue.id);
 
           $.ajax({
             url:"php/blogUpload.php",

@@ -5,8 +5,10 @@ ini_set("display_errors", "on");
 if ($_FILES["blog_img_1"]["name"]!= '' && $_FILES["blog_img_2"]["name"]!= '' && $_FILES["blog_img_3"]["name"]!= '' && $_FILES["blog_img_4"]["name"]!= '') {		
 
 		$id=$_POST['id'];
-		$blogName=$_POST['blogName'];
-		$blogBody=$_POST['blogBody'];
+		$blogName=mysqli_escape_string($con, $_POST['blogName']);
+		$blog_BD=nl2br($_POST['blogBody']);
+		$blogBody=mysqli_escape_string($con, $blog_BD);
+
 		$blog_img_1=$_FILES['blog_img_1']['name'];
 		$blog_img_2=$_FILES['blog_img_2']['name'];
 		$blog_img_3=$_FILES['blog_img_3']['name'];
