@@ -1,0 +1,82 @@
+<?php
+//if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+require_once('include/MVC/View/views/view.detail.php');
+
+class scrm_JobsViewEdit extends ViewEdit {
+
+  function scrm_JobsViewEdit(){
+    parent::ViewEdit();
+  }
+  function display()
+  {
+    global $current_user,$app_list_strings;
+    $current_user_id = $current_user->id;
+
+    $subServiceList = json_encode($app_list_strings['cstm_subService_list']);
+    
+
+    
+/*--------------Changed By Shubham kothe on Jun-14-2018-------------------------------*/
+/*--------------This code appends correnct data into service_sub_c drop down-------------------------------*/
+
+    
+   
+
+    echo $js =<<<js
+    <script>
+    $(document).ready(function(){
+
+       
+       
+    	$('#services_types_s_c').on('change',function(){
+            
+            changeSubService();
+
+           
+        });
+
+     
+
+   
+    function changeSubService(){
+      
+             var sub_List={$subServiceList};
+
+              var serviceList=$('#services_types_s_c').val(); 
+              console.log(serviceList);
+              if(serviceList){
+                $('#service_sub_c option').remove();
+                $('#service_sub_c').append($('<option>').text('').val(''));
+
+                $.each(sub_List,function(i,v){
+                    if(i.includes(serviceList)==true){
+                     if('{$this->bean->service_sub_c}' !='' && '{$this->bean->service_sub_c}' == i){
+                          $('#service_sub_c').append(
+                               $('<option selected>').text(v).val(i)
+                              
+                            );
+                      }else{
+                          $('#service_sub_c').append(
+                               $('<option>').text(v).val(i)
+                            );
+                      }
+
+                }
+
+
+                });
+              }
+    }
+      
+
+    </script>
+js;
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/    
+    
+    parent::display();
+  }
+
+ }
+ ?>
