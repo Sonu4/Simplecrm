@@ -1,0 +1,44 @@
+<?php
+
+        /** 
+          * API file to fetch users info.
+          * Date        : Jan-02-2018
+          * Author      : Nitheesh.R <nitheesh@simplecrm.com.sg>
+          * PHP version : 5.6
+        */
+
+        $usersimplecrmId        = urldecode($_REQUEST["usersimplecrmId"]);  
+
+        if(!defined('sugarEntry') || !sugarEntry) die('Permission denied.');
+        
+        global $db;
+
+        $sql1 = "SELECT IFNULL(id,'') AS id, IFNULL(first_name,'') AS first_name, 
+                IFNULL(last_name,'') AS last_name, IFNULL(user_name,'') AS user_name,
+                is_admin AS is_admin 
+                FROM users WHERE deleted = 0 AND status = 'Active' AND id = '$usersimplecrmId'";
+
+            $res1 = array();
+            $j=0;
+            $results1 = $db->query($sql1);
+            while ($row1 = $db->fetchByAssoc($results1)) {
+
+                $res1[$j]['id']             = $row1['id'];
+                $res1[$j]['first_name']     = $row1['first_name'];
+                $res1[$j]['last_name']      = $row1['last_name'];
+                $res1[$j]['user_name']      = $row1['user_name'];
+                $res1[$j]['is_admin']       = $row1['is_admin'];
+                
+                $j++;
+            }
+
+            $final_array = array();
+            $final_array['users'] = $res1;
+
+            $outputArr = array();
+            $outputArr['Android'] = $final_array;
+            print_r(json_encode($outputArr));
+        
+?>
+
+

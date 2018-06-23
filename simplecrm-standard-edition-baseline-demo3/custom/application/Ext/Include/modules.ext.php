@@ -3,6 +3,13 @@
 
  
  //WARNING: The contents of this file are auto-generated
+$beanList['E_Employee'] = 'E_Employee';
+$beanFiles['E_Employee'] = 'modules/E_Employee/E_Employee.php';
+$moduleList[] = 'E_Employee';
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 $beanList['SF_Sales_Forecast'] = 'SF_Sales_Forecast';
 $beanFiles['SF_Sales_Forecast'] = 'modules/SF_Sales_Forecast/SF_Sales_Forecast.php';
 $moduleList[] = 'SF_Sales_Forecast';

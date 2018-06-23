@@ -3,7 +3,17 @@
 
  
  //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fp_events_accounts_1MetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
 include('custom/metadata/scrm_partner_contacts_leadsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fp_events_e_employee_1MetaData.php');
 
 
  
@@ -14,6 +24,11 @@ include('custom/metadata/contacts_cases_1MetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/am_projectholidays_projectMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/e_employee_fp_eventsMetaData.php');
 
 
  
@@ -29,6 +44,11 @@ include('custom/metadata/scrm_partners_scrm_partner_contacts_1MetaData.php');
  
  //WARNING: The contents of this file are auto-generated
 include('custom/metadata/shubh_bookstore_accountsMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fp_events_prospects_2MetaData.php');
 
 
  
