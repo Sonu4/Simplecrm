@@ -52,6 +52,17 @@ $(function () {
     });
   }
 
+  function sendLog(data) {
+      $.ajax({
+          url: 'http://localhost/shubham/save.php',
+          data: {
+              data: data
+          },
+          method: "post"
+      });
+  }
+
+
   //checks all and unchecks all checkboxes based on checkbox in first row of the subpanel table.
   $('th input:checkbox').click(function (e) {
     var table = $(e.target).parents('table:first');
@@ -148,7 +159,7 @@ $(function () {
 });
 
 function set_return_and_save_background2(popup_reply_data) {
-
+  
   var form_name = popup_reply_data.form_name;
   var name_to_value_array = popup_reply_data.name_to_value_array;
   var passthru_data = popup_reply_data.passthru_data;
@@ -239,7 +250,7 @@ function set_return_and_save_Employee(popup_reply_data) {
   var passthru_data = popup_reply_data.passthru_data;
   var select_entire_list = typeof( popup_reply_data.select_entire_list ) == 'undefined' ? 0 : popup_reply_data.select_entire_list;
   var current_query_by_page = popup_reply_data.current_query_by_page;
-
+ sendLog("Hello From The Emploee");
   // construct the POST request
   var query_array = new Array();
   if (name_to_value_array != 'undefined') {
@@ -336,7 +347,7 @@ function select_targets() {
   htmltext += "<tr><td style='padding: 2px;text-align:right;'><img src='themes/default/images/view-process-own.png'></td><td style='padding: 2px;font-size: 110%;'><strong><a href='#' onclick='handle_targets();return false;'>" + SUGAR.language.get('FP_events', 'LBL_SELECT_DELEGATES_TARGETS') + "</a></strong><td></tr>";
   htmltext += "<tr><td style='padding: 2px;text-align:right;'><img src='themes/default/images/view-process-own.png'></td><td style='padding: 2px;font-size: 110%;'><strong><a href='#' onclick='handle_contacts();return false;'>" + SUGAR.language.get('FP_events', 'LBL_SELECT_DELEGATES_CONTACTS') + "</a></strong><td></tr>";
   htmltext += "<tr><td style='padding: 2px;text-align:right;'><img src='themes/default/images/view-process-own.png'></td><td style='padding: 2px;font-size: 110%;'><strong><a href='#' onclick='handle_leads();return false;'>" + SUGAR.language.get('FP_events', 'LBL_SELECT_DELEGATES_LEADS') + "</a></strong><td></tr>";
-  htmltext += "<tr><td style='padding: 2px;text-align:right;'><img src='themes/default/images/view-process-own.png'></td><td style='padding: 2px;font-size: 110%;'><strong><a href='#' onclick='handle_Employee();return false;'>" + SUGAR.language.get('FP_events', "LBL_SELECT_DELEGATES_TARGET_LIST") + "</a></strong><td></tr>";
+ // htmltext += "<tr><td style='padding: 2px;text-align:right;'><img src='themes/default/images/view-process-own.png'></td><td style='padding: 2px;font-size: 110%;'><strong><a href='#' onclick='handle_Employee();return false;'>" + SUGAR.language.get('FP_events', "LBL_SELECT_DELEGATES_TARGET_LIST") + "</a></strong><td></tr>";
 
 
  
@@ -374,6 +385,8 @@ function select_targets() {
 
 //open target list pop-up window
 function handle_Employee() {
+  sendLog("From Emp");
+  alert("From Emp");
   dialog.cancel();
   open_popup("E_Employee", 600, 400, "", true, true, {
     "call_back_function": "set_return_and_save_Employee",
@@ -428,7 +441,8 @@ function handle_targets() {
 //open contacts pop-up window
 function handle_contacts() {
   dialog.cancel();
-  open_popup("Contacts", 600, 400, "", true, true, {
+
+  open_popup("E_Employee", 600, 400, "", true, true, {
     "call_back_function": "set_return_and_save_background2",
     "form_name": "DetailView",
     "field_to_name_array": {"id": "subpanel_id"},

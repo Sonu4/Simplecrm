@@ -1,0 +1,47 @@
+SELECT 
+    co.id  AS id,
+    co.first_name  AS first_name, 
+    co.last_name  AS last_name,
+    co.created_by  AS created_by,
+    co.description  AS description,
+    co.assigned_user_id  AS assigned_user_id,
+    u.user_name  AS user_name, CONCAT(u.first_name,' ',
+    u.last_name) AS assigned_user_name, co.title  AS title,
+    co.phone_work  AS phone_work ,co.phone_mobile  AS phone_mobile,
+    co.primary_address_street  AS primary_address_street,
+    co.primary_address_city  AS primary_address_city,
+    co.primary_address_state  AS primary_address_state,
+    co.primary_address_postalcode  AS primary_address_postalcode,
+    co.primary_address_country  AS primary_address_country,
+    co.alt_address_street  AS alt_address_street,
+    co.alt_address_city  AS alt_address_city,
+    co.alt_address_state  AS alt_address_state,
+    co.alt_address_postalcode  AS alt_address_postalcode,
+    co.alt_address_country  AS alt_address_country,
+
+    coc.date_modified_mobile_c as date_modified_mobile_c,
+    coc.mobile_id_c  AS mobile_id_c,
+
+    co.date_entered as date_entered,
+    co.date_modified as date_modified,
+    coc.latitude_c  AS latitude,
+    coc.longitude_c  AS longitude,
+    coc.contact_profile_picture_c  AS contactProfilePicture,
+    coc.contact_attachments_c  AS contactAttachments,
+    coc.contact_documents_c  AS contactDocumentLinks,
+    coc.contact_audio_links_c  AS contactAudioRecordLinks,
+    coc.mobile_notification_status_c  AS mobile_notification_status_c,
+    seu.securitygroup_id  AS securitygroup_id,
+    sg.name  AS securitygroup_name,
+    seu.user_id  AS securitygroup_user_id,
+    u.user_name  AS security_group_user_name
+    
+
+
+    FROM contacts AS co
+    INNER JOIN contacts_cstm AS coc ON co.id = coc.id_c
+    INNER JOIN users AS u ON co.assigned_user_id = u.id
+    INNER JOIN securitygroups_users AS seu ON co.assigned_user_id=seu.user_id
+    INNER JOIN securitygroups AS sg ON sg.id=seu.securitygroup_id
+
+    WHERE seu.securitygroup_id in (SELECT securitygroup_id FROM securitygroups_users WHERE user_id='1') AND coc.deleted_from_mobileapp_c = '0' AND co.deleted = '0' AND co.date_modified >='12/12/1995 12:12:12' order by co.date_modified DESC

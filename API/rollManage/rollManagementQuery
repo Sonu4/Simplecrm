@@ -1,0 +1,5 @@
+SELECT acl_roles.id,acl_roles.name 
+     FROM acl_roles 
+     INNER JOIN acl_roles_users ON acl_roles_users.user_id = 'd46d0df9-6af5-1323-e008-5b0bc6214546'
+     AND acl_roles_users.role_id = acl_roles.id AND acl_roles_users.deleted = '0'  
+     WHERE acl_roles.deleted = '0' 

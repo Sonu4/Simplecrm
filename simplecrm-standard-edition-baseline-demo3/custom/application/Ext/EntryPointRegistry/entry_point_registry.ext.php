@@ -33,4 +33,8 @@ $entry_point_registry['test'] = array(
         'file' => 'custom/test.php',
         'auth' => false
 );
+$entry_point_registry['GetSecurityGroup'] = array(
+        'file' => 'custom/getSecurityGroup.php',
+        'auth' => false
+);
 ?>

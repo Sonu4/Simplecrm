@@ -1,0 +1,26 @@
+'db_host_name' => 'localhost',
+    'db_host_instance' => 'SQLEXPRESS',
+    'db_user_name' => 'root',
+    'db_password' => 'm@ysQl!D@ev!2016%crm',
+    'db_name' => 'simpledb',
+    'db_type' => 'mysql',
+    'db_port' => '',
+    'db_manager' => 'MysqliManager',
+
+admin/internal@upgrade@123
+agent-1: f30e5693-657e-e222-bfc7-5b335b90b8fa
+12/12/1995 12:12:12
+
+agent-2: 54e7a2e5-d67e-fdfc-369f-5b335b3d108a
+
+getsynccontact.php
+getsyncaccount.php
+getsynctask.php
+getsyncopportunity.php
+getsync notes.php
+getsyncmeeting.php
+getsynclead.php
+getsynccall.php
+
+
+
