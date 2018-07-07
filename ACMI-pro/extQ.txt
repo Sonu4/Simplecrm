@@ -1,0 +1,22 @@
+SELECT u.id, u.user_name,su.securitygroup_id,sg.name  FROM users as u 
+INNER JOIN securitygroups_users as su on su.user_id=u.id
+INNER JOIN securitygroups as sg on sg.id=su.securitygroup_id
+WHERE u.id='1b3c0615-9e9e-3c40-3f55-5b3c73dc02a6'
+
+
+
+SELECT u.id, u.user_name,sg.name as group_name,ac.category,ac.aclaccess,ac.name as to_access,ar.name as rolename   FROM users as u 
+INNER JOIN securitygroups_users as su on su.user_id=u.id
+INNER JOIN securitygroups as sg on sg.id=su.securitygroup_id
+INNER JOIN acl_roles_users as au on au.user_id=u.id
+INNER JOIN acl_roles as ar on ar.id=au.role_id
+INNER JOIN acl_roles_actions as acn on acn.role_id=ar.id
+INNER JOIN acl_actions as ac on ac.id=acn.action_id
+WHERE ac.category='Leads' AND su.securitygroup_id in (select securitygroup_id from securitygroups_users where user_id='1b3c0615-9e9e-3c40-3f55-5b3c73dc02a6') AND ac.name='list'
+
+SELECT u.id, u.user_name,ac.category,ac.aclaccess,ac.name as to_access,ar.name as rolename,acn.access_override   FROM users as u 
+INNER JOIN acl_roles_users as au on au.user_id=u.id
+INNER JOIN acl_roles as ar on ar.id=au.role_id
+INNER JOIN acl_roles_actions as acn on acn.role_id=ar.id
+INNER JOIN acl_actions as ac on ac.id=acn.action_id
+WHERE u.id='1b3c0615-9e9e-3c40-3f55-5b3c73dc02a6' and ac.category='Leads' and ac.name='list'

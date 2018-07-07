@@ -17,7 +17,7 @@ getsynccontact.php
 getsyncaccount.php
 getsynctask.php
 getsyncopportunity.php
-getsync notes.php
+getsyncnotes.php
 getsyncmeeting.php
 getsynclead.php
 getsynccall.php
