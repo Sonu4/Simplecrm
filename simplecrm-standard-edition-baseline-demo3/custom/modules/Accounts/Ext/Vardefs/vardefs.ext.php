@@ -19,6 +19,12 @@ $dictionary['Account']['fields']['jjwg_maps_address_c']['inline_edit']=1;
 
  
 
+ // created: 2018-07-07 16:54:57
+$dictionary['Account']['fields']['email_c']['inline_edit']='1';
+$dictionary['Account']['fields']['email_c']['labelValue']='Email';
+
+ 
+
  // created: 2015-08-20 11:47:30
 $dictionary['Account']['fields']['jjwg_maps_lng_c']['inline_edit']=1;
 

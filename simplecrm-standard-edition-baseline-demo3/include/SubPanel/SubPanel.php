@@ -385,6 +385,7 @@ class SubPanel
 
 	function buildSearchQuery()
 	{
+
 		require_once('include/SubPanel/SubPanelSearchForm.php');
 
 		$module = 'Meetings';
@@ -395,6 +396,7 @@ class SubPanel
 		$searchForm = new SubPanelSearchForm($seed, $module, $this);
 
 		$searchMetaData = $searchForm->retrieveSearchDefs($module);
+
 		$searchForm->setup($searchMetaData['searchdefs'], $searchMetaData['searchFields'], 'SubpanelSearchFormGeneric.tpl', 'basic_search');
 
 		$searchForm->populateFromRequest();
@@ -410,6 +412,7 @@ class SubPanel
 	function get_searchdefs($module)
 	{
 		$thisPanel =& $this->subpanel_defs;
+		
 		$subpanel_defs = $thisPanel->_instance_properties;
 
 		if(isset($subpanel_defs['searchdefs'])){

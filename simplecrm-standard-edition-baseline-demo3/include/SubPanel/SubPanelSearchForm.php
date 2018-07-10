@@ -60,6 +60,7 @@ class SubPanelSearchForm extends SearchForm  {
                 }
             }
         }
+       
         return $select;
     }
 

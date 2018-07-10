@@ -88,15 +88,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'email1',
-            'studio' => 'false',
-            'label' => 'LBL_EMAIL',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'billing_address_street',
             'hideLabel' => true,
             'type' => 'address',
@@ -123,12 +114,21 @@ array (
             ),
           ),
         ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'email1',
+            'studio' => 'false',
+            'label' => 'LBL_EMAIL',
+          ),
+        ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'email_c',
+            'label' => 'LBL_EMAIL',
           ),
         ),
         5 => 

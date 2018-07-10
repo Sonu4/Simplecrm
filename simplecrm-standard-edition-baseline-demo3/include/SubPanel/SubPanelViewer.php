@@ -1,3 +1,4 @@
+
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
@@ -71,6 +72,8 @@ if (!isset($_REQUEST['subpanel'])) {
 $subpanel = $_REQUEST['subpanel'];
 $record = $_REQUEST['record'];
 $module = $_REQUEST['module'];
+
+
 
 $collection = array();
 

@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-17 11:19:47
+// created: 2018-07-07 16:54:57
 $mod_strings = array (
   'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
@@ -33,4 +33,5 @@ $mod_strings = array (
   'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
   'LBL_TYPE' => 'Type:',
   'LBL_SHUBH_BOOKSTORE_ACCOUNTS_FROM_SHUBH_BOOKSTORE_TITLE' => 'Bookstore',
+  'LBL_EMAIL' => 'Email',
 );
